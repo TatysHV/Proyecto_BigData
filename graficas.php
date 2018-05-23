@@ -28,7 +28,9 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="genero.php">Género-Actores</a></li>
         <li><a href="actores.php">Actores</a></li>
+        <li><a href="clientes-films.php">Cliente-film</a></li>
         <li><a href="">Películas</a></li>
+        <li><a href="graficas.php">Gráficas</a></li>
       </ul>
     </div>
   </nav>
@@ -109,7 +111,7 @@
                 }
               }
             echo '],';
-          ?> 
+          ?>
         //data: [86,114,106,106,107,111,133,221,783,2478],
         label: "Peliculas Por Categoría",
         borderColor: "#8e5ea2",
@@ -122,7 +124,7 @@
         options: {
           title: {
       display: true,
-      
+
     }
         }
 

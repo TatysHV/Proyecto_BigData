@@ -28,15 +28,22 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="genero.php">Género-Actores</a></li>
         <li><a href="actores.php">Actores</a></li>
+        <li><a href="clientes-films.php">Cliente-film</a></li>
         <li><a href="">Películas</a></li>
+        <li><a href="graficas.php">Gráficas</a></li>
       </ul>
     </div>
   </nav>
     <form class="col s12">
       <center>
         <h4>Búsqueda de películas de actores</h4>
-        <br><br>
+        <br>
         <div style="width: 80%">
+
+          <div class="col s12" style="border: 1px solid #00838F; border-radius: 3px 3px 3px 3px; padding: 10px; margin: 2%;">
+            <span style="color:#00838F"><b>Ejercicio 2 y 3.</b></span> Busca las películas donde aparecen 1 o dos actores en común.
+          </div>
+          <br><br><br>
 
         <?php
         echo '
@@ -45,7 +52,6 @@
                 <div class="col s12" style="text-align: left">Elegir actor:</div>
                 <select id="select-actor1" style="display: block;height:40px;" >';
                 $query= mysqli_query($con, "SELECT * FROM actor ORDER BY first_name, last_name ASC");
-                  echo'<option value="" selected> </option>';
                 while ($line = mysqli_fetch_array($query)) {
                   echo'<option value="'.$line["actor_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
                 }

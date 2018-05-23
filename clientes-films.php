@@ -36,54 +36,34 @@
   </nav>
     <form class="col s12">
       <center>
-        <h4>Búsqueda de películas por género</h4>
+        <h4>Películas rentadas por cliente</h4>
         <br>
-        <div style="width: 80%">
 
+        <div style="width: 80%">
           <div class="col s12" style="border: 1px solid #00838F; border-radius: 3px 3px 3px 3px; padding: 10px; margin: 2%;">
-            <span style="color:#00838F"><b>Ejercicio 1.</b></span> Busca películas del género a elegir, con o sin actor de preferencia.
+            <span style="color:#00838F"><b>Ejercicio 9.</b></span> Busca las películas que han sido rentadas por un cliente determinado.
           </div>
           <br><br><br>
 
+
         <?php
           echo '
-              <div class="col s5">
-                <div class="input-field col s12">
-                <div class="col s12" style="text-align: left">Elegir película:</div>
-                <select id="select-category"style="display: inline-block; height:40px;"">';
-                  $query= mysqli_query($con, "SELECT name FROM category");
+                <div class="input-field col s10">
+                <div class="col s12" style="text-align: left">Elegir cliente:</div>
+                <select id="select-cliente" style="display: inline-block; height:40px;">';
+                  $query= mysqli_query($con, "SELECT customer_id, first_name, last_name FROM customer ORDER BY first_name, last_name ASC");
 
                   while ($line = mysqli_fetch_array($query)) {
-                    echo'<option>'.$line["name"].'</option>';
+                    echo '<option value="'.$line["customer_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
                   }
 
                   echo'</select>
 
-                </div>
-
-              </div>';
-
-
-          echo '
-              <div class="col s5">
-                <div class="input-field col s12">
-                  <div class="col s12" style="text-align: left">Elegir actor:</div>
-                  <select id="select-actorx" style="display: block;height:40px;" >';
-                  $query= mysqli_query($con, "SELECT * FROM actor ORDER BY first_name, last_name ASC");
-                    echo'<option value="" selected> </option>';
-                  while ($line = mysqli_fetch_array($query)) {
-                    echo'<option value="'.$line["actor_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
-                  }
-
-                  echo'</select>
-                  </div>
                 </div>';
-
-
          ?>
 
          <div class="col s2" style="padding-top: 40px;">
-           <div onclick="buscar()">
+           <div onclick="show_client_films()">
              <a class="waves-effect waves-light btn">Buscar</a>
            </div>
          </div>
@@ -95,9 +75,9 @@
 
 </br></br>
 
-  <div class="row" style="margin:auto; width: 70%">
+  <div class="row" style="margin:auto; width: 60%">
 
-      <div id="resultado_genero">
+      <div id="resultado_cliente">
 
       </div>
 

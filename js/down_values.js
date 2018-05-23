@@ -71,8 +71,22 @@ function show_actor_films(){
 				}
 			});
 	}
+}
 
+function show_client_films(){
 
+	var lista = document.getElementById("select-cliente");
+	var indice = lista.selectedIndex;
+	var opcion = lista.options[indice];
+	var id_cliente = opcion.value;
 
+	$.ajax({
+		 url: "php/cliente_films.php",
+		 data: {"cliente":id_cliente},
+		 type: "post",
+			success: function(data){
+				document.getElementById("resultado_cliente").innerHTML = data;
+			}
+		});
 
 }
