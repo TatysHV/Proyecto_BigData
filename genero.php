@@ -36,30 +36,52 @@
       <center>
         <h4>Búsqueda de películas por género</h4>
         <br><br>
+        <div style="width: 80%">
 
         <?php
-          echo ' <center>
-              <div style="width: 40%">
-              <div class="input-field col s9" style="width:100%; margin:auto; display: inline-block">
-              <select id="select-category"style="display: inline-block">';
-          $query= mysqli_query($con, "SELECT name FROM category");
+          echo '
+              <div class="col s5">
+                <div class="input-field col s12">
+                <div class="col s12" style="text-align: left">Elegir película:</div>
+                <select id="select-category"style="display: inline-block; height:40px;"">';
+                  $query= mysqli_query($con, "SELECT name FROM category");
 
-          while ($line = mysqli_fetch_array($query)) {
-            echo'<option>'.$line["name"].'</option>';
-          }
+                  while ($line = mysqli_fetch_array($query)) {
+                    echo'<option>'.$line["name"].'</option>';
+                  }
 
-          echo'</select>
-          </div>
-          </center>';
+                  echo'</select>
+
+                </div>
+
+              </div>';
+
+
+          echo '
+              <div class="col s5">
+                <div class="input-field col s12">
+                  <div class="col s12" style="text-align: left">Elegir actor:</div>
+                  <select id="select-actorx" style="display: block;height:40px;" >';
+                  $query= mysqli_query($con, "SELECT * FROM actor ORDER BY first_name, last_name ASC");
+                    echo'<option value="" selected> </option>';
+                  while ($line = mysqli_fetch_array($query)) {
+                    echo'<option value="'.$line["actor_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
+                  }
+
+                  echo'</select>
+                  </div>
+                </div>';
+
 
          ?>
 
-         <div class="col s3" style="display:inline-block; width:100px; height: 80px;">
+         <div class="col s2" style="padding-top: 40px;">
            <div onclick="buscar()">
              <a class="waves-effect waves-light btn">Buscar</a>
            </div>
          </div>
-        </div>
+       </div>
+      </div>
       </center>
     </form>
   </div>

@@ -36,33 +36,51 @@
       <center>
         <h4>Búsqueda de películas de actores</h4>
         <br><br>
+        <div style="width: 80%">
 
         <?php
-          echo ' <center>
-              <div style="width: 40%">
-              <div class="input-field col s9" style="width:100%; margin:auto; display: inline-block">
-              <select id="select-actor" style="display: inline-block">';
-          $query= mysqli_query($con, "SELECT * FROM actor ORDER BY first_name, last_name ASC");
+        echo '
+            <div class="col s5">
+              <div class="input-field col s12">
+                <div class="col s12" style="text-align: left">Elegir actor:</div>
+                <select id="select-actor1" style="display: block;height:40px;" >';
+                $query= mysqli_query($con, "SELECT * FROM actor ORDER BY first_name, last_name ASC");
+                  echo'<option value="" selected> </option>';
+                while ($line = mysqli_fetch_array($query)) {
+                  echo'<option value="'.$line["actor_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
+                }
 
-          while ($line = mysqli_fetch_array($query)) {
-            echo'<option value="'.$line["actor_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
-          }
+                echo'</select>
+                </div>
+              </div>';
 
-          echo'</select>
-          </div>
-          </center>';
+          echo '
+              <div class="col s5">
+                <div class="input-field col s12">
+                  <div class="col s12" style="text-align: left">Elegir actor:</div>
+                  <select id="select-actor2" style="display: block;height:40px;" >';
+                  $query= mysqli_query($con, "SELECT * FROM actor ORDER BY first_name, last_name ASC");
+                    echo'<option value="" selected> </option>';
+                  while ($line = mysqli_fetch_array($query)) {
+                    echo'<option value="'.$line["actor_id"].'">'.$line["first_name"].' '.$line["last_name"].'</option>';
+                  }
+
+                  echo'</select>
+                  </div>
+                </div>';
 
          ?>
 
-         <div class="col s3" style="display:inline-block; width:100px; height: 80px;">
+         <div class="col s2" style="padding-top: 40px;">
            <div onclick="show_actor_films()">
              <a class="waves-effect waves-light btn">Buscar</a>
            </div>
          </div>
-        </div>
-      </center>
-    </form>
-  </div>
+       </div>
+      </div>
+    </center>
+  </form>
+</div>
 
 </br></br>
 
@@ -73,9 +91,5 @@
       </div>
 
   </div>
-
-
-      <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
   </html>
