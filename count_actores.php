@@ -31,8 +31,8 @@
         <li><a href="actores.php">Actores</a></li>
         <li><a href="count_actores.php">GR-Actores</a></li>
         <li><a href="clientes-films.php">Cliente-film</a></li>
-        <li><a href="">Películas</a></li>
         <li><a href="graficas.php">Gráficas</a></li>
+        <li><a href="rentas.php">Rentas</a></li>
       </ul>
     </div>
   </nav>
