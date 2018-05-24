@@ -28,6 +28,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="genero.php">Género-Actores</a></li>
         <li><a href="actores.php">Actores</a></li>
+        <li><a href="count_actores.php">GR-Actores</a></li>
         <li><a href="clientes-films.php">Cliente-film</a></li>
         <li><a href="">Películas</a></li>
         <li><a href="graficas.php">Gráficas</a></li>
@@ -50,11 +51,11 @@
               <div class="col s5">
                 <div class="input-field col s12">
                 <div class="col s12" style="text-align: left">Elegir película:</div>
-                <select id="select-category"style="display: inline-block; height:40px;"">';
+                <select id="select-category" style="display: inline-block; height:40px;">';
                   $query= mysqli_query($con, "SELECT name FROM category");
 
                   while ($line = mysqli_fetch_array($query)) {
-                    echo'<option>'.$line["name"].'</option>';
+                    echo'<option value="'.$line["name"].'">'.$line["name"].'</option>';
                   }
 
                   echo'</select>

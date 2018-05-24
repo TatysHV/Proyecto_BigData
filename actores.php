@@ -28,6 +28,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="genero.php">Género-Actores</a></li>
         <li><a href="actores.php">Actores</a></li>
+        <li><a href="count_actores.php">GR-Actores</a></li>
         <li><a href="clientes-films.php">Cliente-film</a></li>
         <li><a href="">Películas</a></li>
         <li><a href="graficas.php">Gráficas</a></li>

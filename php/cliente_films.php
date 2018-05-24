@@ -21,3 +21,4 @@ on c.customer_id = r.customer_id and r.inventory_id = i.inventory_id and i.film_
 
       }
       echo '</table>';
+?>
